@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Bids {
+  id Int @id @default(autoincrement())
+  position Int
+  groupId Int
+  author String
+  group Group @relation(references: [id], fields: [groupId], onDelete: Cascade)
+}
+
+model Group { //neuronio
+  id Int @id @default(autoincrement())
+  bids Bids[]
+  groupState GroupState
+  utility Utility? @default(on) //se o neuronio esta ou nao morto
+  
+}
+
+enum Utility {
+  on
+  off
+}
+enum GroupState{
+  win
+  lose
+  equal
+  recognizement
+} 

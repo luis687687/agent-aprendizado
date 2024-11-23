@@ -7,15 +7,27 @@
   --foreground: #171717;
 }
 
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* --background: #0a0a0a;
+    --foreground: #ededed; */
   }
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  height: 100dvh;
+  
+}
+
+.winner-box{
+  background-color: green;
 }

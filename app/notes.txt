@@ -1,0 +1,17 @@
+1 - Tanto os neorónios de reconhecimento, quanto os de erro, quando já usados eles são esquecidos
+  obs: usado é quando é carregado da rede e depois seguido pelo bot
+      esquecido, consiste em mudar o campo de estado para esquecido
+
+2 - usar um neorónio de perda, consiste em:
+  Se o bot notar que está em seu último movimento, no neorónio de perda, então, optar por se mover para a última posição válida do user dentro do neorónio
+
+Localmente, criar uma variável,  ia_punished, que se o lance a ser analisado for um lance perdido, se o user ganhar em um só lance, então a ia está encorralada, deve enviar para a rede neoral dados de perdas forçadas:
+  -dados de perdas forçada, consiste em remover os dois últimos moviementos do array de historico de movimento, fingindo que o bot perdeu no n - 2 movimento
+  -os movimentos de perda forçada, devem pertencer ao grupo de neorónios de análise, afim de que, o bot vai velo como um movimento desconhecido, e quando perder ao segui-lo, ele simplesmente vai marcar como se tivesse perdido pela primeira vez
+
+
+
+
+
+
+futuramente, em grupos de perda, tenta lançar todas as posições possiveis, até chegar na posição do usuário, afim de tentar antecipar ganho
