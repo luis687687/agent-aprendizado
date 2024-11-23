@@ -5,7 +5,7 @@ import getCoords from "./_helpers/getCoords"
 import { author, coordenates } from "./_utils/constants"
 import { GroupState } from "@prisma/client"
 import useGame from "./useGame"
-import { forgetGroups, GroupWithBid } from "./_controllers/groupController"
+import {  GroupWithBid } from "./_controllers/groupController"
 import { possibilities, randomShot } from "./_ia-brain/randomShot"
 import { removeByValue} from "./_helpers/removeFromArray"
 import filterGroupFromIndexAndPosition from "./_helpers/filterGroupFromIndexAndPosition"
@@ -118,7 +118,7 @@ export default function Grid(){
 
     //if(memorizedGroup.length) //se te
 
-    let groupState : GroupState = hasWinner ? lastuser.indexOf("ia") != -1 ? 
+    const groupState : GroupState = hasWinner ? lastuser.indexOf("ia") != -1 ? 
     GroupState.win : GroupState.lose : GroupState.equal
 
     // if(groupState == GroupState.lose && memorizedGroup.length){ // Se perdeu, enviar o elemento que ele seguiu e perdeu
