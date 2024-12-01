@@ -15,3 +15,7 @@ Localmente, criar uma variável,  ia_punished, que se o lance a ser analisado fo
 
 
 futuramente, em grupos de perda, tenta lançar todas as posições possiveis, até chegar na posição do usuário, afim de tentar antecipar ganho
+
+
+Se ele reconhecer que só lhe falta uma jogada para terminar a informação da célula neoral (group) ele escolhe chutar na última posição armazenada no conhecimento da célula neoral (que era a jogada do usuário)
+  -Ao fazer isso, a função retorna um objecto contendo o campo groupToForget, que contem o grupo que será esquecido da rede neoral

@@ -50,15 +50,15 @@ export async function forgetGroups(
   console.log("Grupos para apagar ", groups)
   groups.forEach( async group => {
     const {id} = group
-    console.log("Deleting... ", group)
+    console.log("Esquecendo... ", group)
     await prisma.group.update({
       where: {id}, data: {
         utility: Utility.off
       }
     })
 
-    console.log("successfull!!! ")
-
-    
+    return {
+      success: true
+    }
   })
 }

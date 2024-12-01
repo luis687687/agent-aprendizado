@@ -34,7 +34,7 @@ enum Utility {
   on
   off
 }
-enum GroupState{
+enum GroupState {
   win
   lose
   equal

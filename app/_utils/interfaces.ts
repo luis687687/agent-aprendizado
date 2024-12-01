@@ -1,5 +1,5 @@
 import { GroupState } from "@prisma/client"
-
+import {  GroupWithBid } from "../_controllers/groupController"
 
 export interface BidHistory {
   position: number,
@@ -13,10 +13,17 @@ export interface GroupHistory {
 
 export interface BotChoosedOption {
   possibles?: Array<number>,
-  choosed: IChoosedObject
+  choosed: IChoosedObject,
+  groupToForget?: GroupWithBid
 }
 
 export interface IChoosedObject {
   value : number 
   index: number
+}
+
+
+export enum GameObjective {
+  trainment,
+  competitive
 }
