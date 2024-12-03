@@ -13,7 +13,6 @@ export default function inteligentShot({
   let actualGroup = groups[groupIndex]
   if(!groups.length) throw "Erro, array esta vazio"
   let notfoundnonthing = true //se não tenho nenhum lance cujo o ultimo lance feito seja um index valido no tamanho de qualquer um dos neoronios
-
   groups.forEach( (g) => { //verifica se existe alguma chance de perder na proxima jogada
     if(bidIndex > g.bids.length-1) return
     notfoundnonthing = false

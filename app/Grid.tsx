@@ -43,6 +43,8 @@ export default function Grid({
   //que até quando o jogo termina ele tenta responder, 
   //pois a actualização da variável de estado stop é muito lenta
   let firstlyReshedStopIndicator = false 
+  ///////////////
+
   const restartLocal = () => {
     setStop(false)
     setGroupToForget(undefined)
@@ -73,7 +75,6 @@ export default function Grid({
     if(stop) return
     if(isX) //foi vez do user
       return
-
     
     const possible_vertices_if_firstbot_time = [0,2,6,8] //vertices para fazer bypass, caso a primeira jogada nao aprendida, do user, for no centro
     setTimeout( () => {

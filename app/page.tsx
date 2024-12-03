@@ -9,33 +9,16 @@ import Image from "next/image"
 
 export default function Home() {
   const [gameObjective, setGameObjective] = useState<GameObjective>(GameObjective.competitive);
-  // useEffect( () => {
-  //   let cont=0
-  //   console.log("Fora!!!!!!!!!!")
-  //   setInterval( () => {
-      
-  //     const el = document.querySelector("#area_back") as HTMLElement
-  //     if(!el) return
-  //     console.log("Luis")
-  //     el.style.backgroundPositionX = `-${cont}px`
-  //     cont+=100
-  //   }, 500)
-  // }, [])
   useEffect(() => {
     const sounder = document.createElement("audio") as HTMLAudioElement
     sounder.src = "./_assets/sound/back.wav"
     sounder.volume = 0.05
-
-
-    
     sounder.loop = true
     sounder.addEventListener("canplaythrough", () => {
-      sounder.play().catch(e => {
-        console.log("Erro no som ")
+      sounder.play().catch( () => {
+        console.log("Erro ao player")
         window.addEventListener("click", ()=> {
-          console.log("Activando...")
           sounder.play()
-          console.log(sounder, " sss")
         }, {once: true})
       })
     })
