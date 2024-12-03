@@ -15,6 +15,9 @@ import {BidHistory, BotChoosedOption} from "@/app/_utils/interfaces"
 import {GameObjective} from "./_utils/interfaces"
 import styles from "./styles.module.css"
 import clearElements from "./_helpers/clearElements"
+import Image from "next/image"
+import tabImage from "../public/tab.png"
+
 
 let available_chuts : number[] = possibilities.map( e => e)
 let local_coordenates_choosed = coordenates.map(e => [...e])
@@ -197,7 +200,7 @@ export default function Grid({
       return
     groupState = groupStateToRecognizementGroup({groupState, groupToForget})
     forgetBrokeGroup({groupState, groupToForget})
-    
+
     const group = { //se o jogo acabar vamos registar tudo
       groupState,
       bidsHistory,
@@ -258,12 +261,15 @@ export default function Grid({
 
 
   return(
-    <div className={`w-full  px-[80px]  flex-[1] flex justify-center items-center max-[600px]:px-[20px] `}>
-      <div className={`w-full  grid`} style={{
+    <div className={`w-full  px-[80px]  flex justify-center items-center max-[600px]:px-[20px] relative`}>
+      
+      <div className={`w-[80%]  grid max-[600px]:w-[60%] max-[900px]:w-[40%] z-10`} style={{
         aspectRatio: "1/1",
         gridTemplateColumns: "repeat(3, 1fr)",
         gridTemplateRows: "repeat(3, 1fr)",
         gap: "8px",
+        
+        
 
       }}>
       {Array(9).fill(1).map( (e, i) => 
@@ -281,6 +287,10 @@ export default function Grid({
       )}
 
       </div>
+      <Image src={tabImage} alt="background" className={styles.tabimage+ `
+          max-[900px]:w-[60%!important]
+          max-[600px]:w-[100%!important]
+        `}/>
     </div>
   )
 }
@@ -309,14 +319,17 @@ const Ceil = (props: ICeil) => {
   const {x, y} = getCoords(position)
 
 
-  
+  const [rotate, setRotate] = useState(0)
+  useEffect( () => setRotate(Math.ceil(-5 + Math.random()*10 )), [])
   return (
     <div 
       ref={ref}
       className={`${styles.ceil} rounded-[8px] cursor-pointer
         text-white text-[70px] flex justify-center items-center
           ${disabled || "active:bg-white"} btn-class`}
-        style={{userSelect: "none"}}
+        style={{userSelect: "none", 
+          transform: `rotate(${rotate}deg)`
+        }}
         id={`${y}${x}`}
       
       
@@ -361,6 +374,11 @@ const click = ( {
   
   if(inactive)
     return
+  const soundelement = document.createElement("audio") as HTMLAudioElement
+  console.log(soundelement)
+  soundelement.src = ("./_assets/sound/button.wav")
+  soundelement.play()
+
   const info = isX ? "x" : "o"
   const {x, y} = getCoords(position)
   element.innerText = info

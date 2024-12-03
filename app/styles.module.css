@@ -13,4 +13,19 @@
 
 .ceil{
   background-color: var(--blue);
+  font-size: 1.9rem;
+  box-shadow: 0px 0px 4px 2px #219a4b;
+}
+
+.tabimage {
+  position: absolute;
+  width: 100%;
+  
+}
+
+.lamp {
+  width: 40px;
+  z-index: 20;
+  position: absolute;
+  top: 30px;
 }

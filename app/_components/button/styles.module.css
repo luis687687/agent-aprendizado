@@ -5,7 +5,8 @@
   color: var(--blue);
   height: 55px;
   width:min(100%, 200px);
-  border: 1px solid var(--blue);
+  border: 2px solid var(--blue);
   transition: 1s;
+  font-weight: 800;
   
 }

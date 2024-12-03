@@ -10,9 +10,15 @@ export default function Button(
   }
 ){
 
+  const click = () => {
+    if(onClick) onClick()
+    const sounder = document.createElement("audio") as HTMLAudioElement
+    sounder.src = "./_assets/sound/tap.wav"
+    sounder.play()
+  }
 
   return(
-    <button className={styles.area} onClick={() => onClick && onClick()}
+    <button className={styles.area} onClick={() => click()}
       style = {
         active ? {
           color: "white",
